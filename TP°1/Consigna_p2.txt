@@ -1,0 +1,27 @@
+﻿Llegar a fin de mes
+
+
+
+
+Averiguar a qué distancia de la línea de pobreza está un docente universitario
+
+
+Se conocen los costos de la canasta básica total, que es la que define la línea de pobreza, para familias de diferente composición, a noviembre 2023.
+* 1 integrante (adulto) 126000
+* 3 integrantes (2 adultos y 1 adulto mayor) 310000
+* 4 integrantes (2 adultos y 2 menores) 390000
+* 5 integrantes (2 adultos y 3 menores) 410000 
+
+
+Se cuenta con una función que calcula el salario docente a la misma fecha.
+
+
+También se concen los porcentajes de aumento, tanto de la inflación como del salario, de  diciembre 2023 a febrero 2024, ambos inclusive:
+* Inflación General (IPC): 71%
+* Aumento salarial: 22%
+(Datos oficiales. El aumento salarial fue 6% en diciembre y 10% en febrero según acuerdo paritario anterior. Por decisión del estado nacional sin acuerdo partitario, en febrero se agrega 6% no acumulativo)
+
+
+Ejemplo
+Un docente que en noviembre 2023 cobra $348000, con una familia de 3 integrantes, estaba $38000 por sobre la linea de pobreza
+El mismo docente, en febrero 2024, está a $105540 por debajo de la línea de pobreza

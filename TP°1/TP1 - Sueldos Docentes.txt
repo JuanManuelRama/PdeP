@@ -1,0 +1,25 @@
+﻿Presupuesto Universitario
+
+
+Calcular el sueldo de un docente universitario de UTN, dado su cargo, cantidad de horas que trabaja, y su antigüedad en años.
+El básico depende del cargo que tenga la persona, también tiene un adicional por antigüedad y luego varía proporcionalmente dependiendo de la cantidad de horas que trabaje.
+
+
+Básico: El básico por cargo (Noviembre 2023) es el siguiente:
+* "titular": $ 149000
+* "adjunto": $ 116000
+* "ayudante": $ 66000
+(Son valores reales, aunque existen otros cargos, como asociado, jefe trabajos prácticos y ayudante de primera. Los seleccionados son los más representativos:  Titular es generalmente jefe de cátedra, Adjunto  es la mayoría de los profesores a cargo de un curso, Ayudante 2° son los ayudantes que son alumnos. Por ahora modelar sólo estos tres)
+Antiguedad: El porcentaje de incremento por antigüedad es:
+* Entre 3 y 5 años -> 20% adicional 
+* a partir de 5 años -> 30% adicional
+* a partir de 10 años -> 50% adicional
+* a partir de 24 años (máxima antigüedad) -> 120% adicional
+(Son datos reales, aunque simplificados, ya que existen más valores intermedios en la escala, de manera de cada 2 o 3 años varía levemente el porcentaje. Por ahora modelar sólo estos)
+Cantidad de horas: La proporcionalidad de horas se calcula asumiendo que el importe por cargo corresponde a 10 horas semanales. Si trabaja 10hs se paga el sueldo base. Si trabaja 30 hs, se paga el sueldo base por 3. El valor se redondea, de manera que si trabaja 22hs se paga el sueldo base por 2, y si trabaja 37 horas se paga el sueldo base por 4. No hay personas que trabajen menos de 5 horas ni más de 50.
+(Este cálculo está simplificado, pero es bastante aproximado; en realidad se redondea no sólo a cantidades enteras sino también a "medias" de manera que si alguien trabaja 16 hs, se multiplica por 1.5, pero por ahora no hace falta modelar estos casos)
+
+
+Ejemplo
+Un "adjunto" con 10 años de antigüedad trabajando 24hs cobra $116.000 * 150% * 2 = $348000
+________________

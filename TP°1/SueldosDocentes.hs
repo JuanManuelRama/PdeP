@@ -16,7 +16,7 @@ basico "ayudante"=66000
 basico x = error "No es un cargo"
 
 
-bonAntiguedad :: Antiguedad->Float
+bonAntiguedad :: Antiguedad->Porcentaje
 bonAntiguedad antiguedad
     |antiguedad <3  = porcentaje 10
     |antiguedad <5  = porcentaje 20
@@ -39,8 +39,8 @@ bonHoras horas
 -- |otherwise = fromIntegral (redondearUnidad horas) / 10
 redondearUnidad :: Int->Int
 redondearUnidad x 
-    |truncDecena x >=5 = x+(10-truncDecena x)    
-    |otherwise = x-truncDecena x
+    |truncarDecena x >=5 = x+(10-truncarDecena x)    
+    |otherwise = x-truncarDecena x
 
-truncDecena :: Int->Int
-truncDecena x = mod x 10
+truncarDecena :: Int->Int
+truncarDecena x = mod x 10

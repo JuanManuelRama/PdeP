@@ -31,7 +31,12 @@ porcentaje x = (x/100)+1
 bonHoras :: Horas->Float    
 bonHoras horas 
     |horas<5 || horas>50 = error "No se puede haber trabajado esa cantidad de horas"
-    |otherwise = fromIntegral (redondearUnidad horas) / 10
+   -- |otherwise = fromIntegral (redondearUnidad horas) / 10
+   |horas<15 = 1
+   |horas<25 = 2
+   |horas<35 = 3
+   |horas<45 = 4
+   |horas<=50 =5
 
 redondearUnidad :: Int->Int
 redondearUnidad x 
@@ -39,4 +44,4 @@ redondearUnidad x
     |otherwise = x-truncDecena x
 
 truncDecena :: Int->Int
-truncDecena x =mod x 10
+truncDecena x = mod x 10

@@ -1,0 +1,75 @@
+﻿Gran Elenco
+
+
+Un sistema que va a ser un éxito de taquilla
+
+
+
+
+Se cuenta con información de los actores/actrices, donde se indica su nombre, si recibió premio oscar y cuantas estrellas de valoración obtuvo en cada película en la que actuó. 
+
+
+data Persona = UnaPersona {
+nombre:: String,
+recibioOscar::Bool,
+actuaciones:: [Actuacion]}
+
+
+data Actuacion = UnaActuacion {
+        pelicula::Pelicula
+        valoracion:: Int }
+
+
+type Pelicula = String
+
+
+Hay definida una funcion constante con todas las peliculas que recibieron premio oscar
+peliculasPremiadas :: [Pelicula]
+
+
+Definir las siguientes funciones:
+
+
+Primera fila
+1. Determinar si el/la actor/actriz tuvo valoración de 3 estrellas o más en la útima película en la que actuó, y actuó en más de una película. 
+2. Saber si el/la actor/actriz recibió un oscar individualmente o su primer actuación fue en una película que lo ganó. 
+3. Actor/actriz con experiencia. Dada un número que representa una cantidad de películas, averiguar si el/la actor/actriz actuó en más películas que la cantidad indicada.
+
+
+La academia se rectifica
+4. Cuando un actor que ganó el oscar hace declaraciones desafortunadas, la academia se lo quita 
+
+
+Las segundas partes nunca fueron buenas
+5. Si un actor/actriz tiene éxito en su última actuación (una valoración mayor a 3 estrellas) lo contratan para la parte 2 de la pelicula, pero recibe una valoración 2 unidades menor.
+
+
+Villanos
+
+
+6. Determinar si el/la actor/actriz siempre tuvo valoración de 3 estrellas o más en todas las películas en las que actuó, y actuó en más de una película. 
+
+
+Héroes y heroínas
+7. Puede ser Saber si el/la actor/actriz recibió un oscar individualmente o actuó en una película que lo ganó. 
+
+
+Experiencia
+8. Dada un número que representa una cantidad de películas, averiguar si el/la actor/actriz actuó en más películas que la cantidad indicada.
+
+
+Armando el elenco
+9. A partir de una lista de personas, y utilizando las funciones anteriores, se quiere resolver estos requerimientos (y otros similares). Definir las funciones adicionales necesarias y mostrar cómo se las invocaría para cada caso:
+   1. Si la cantidad de actores/actrices que podrian ser heroes/heroinas es más que 3.
+   2. Si hay al menos 5 actores/actrices que no podrían ser villanos.
+   3. Si hay más de 2 actores/actrices que tengan una experiencia de más de 4 películas.
+   4. Si considerando los que podrían ser heroes/heroinas o villanos/as se llega a 5 actores/actrices.  
+   5. Inventar una nueva catalogación posible para un actor/actriz y utilizarla para hacer una consulta parecida a las anteriores. 
+
+
+Para pensar
+10. Justificar la utilización de composición y aplicación parcial en la solución.
+
+
+Bonus track
+11. Peliculas en común. Dado un conjunto de personas, obtener el conjunto de todas las películas en las que actuaron todas esas personas, sin repeticiones.

@@ -13,6 +13,7 @@ data Persona = UnaPersona{
 }deriving Show
 
 data Elenco = UnElenco{
+    heroes :: Bool,
     villanos :: Bool,
     experiencias :: Bool
 }deriving Show
@@ -54,6 +55,7 @@ cancelado alguien "xenofobia" = alguien{recibioOscar=False}
 cancelado alguien "homofobia" = alguien{recibioOscar=False}
 cancelado alguien x = alguien
 
+
 esVillano :: Persona->Bool
 esVillano (UnaPersona _ _ actuaciones)
     |length actuaciones>1 = villano actuaciones
@@ -65,29 +67,47 @@ villano actuaciones
     |not (ultPeliBuena actuaciones) = False
     |ultPeliBuena actuaciones = True
 
+esHeroe :: Persona->Bool
+esHeroe (UnaPersona _ oscar filmografia) = oscar && not (oscarFilmografia filmografia)    
+
+oscarFilmografia :: [Actuacion]->Bool
+oscarFilmografia filmografia
+    |null filmografia= False
+    |oscarPeli (head filmografia) = True
+    |not (oscarPeli (head filmografia) ) = oscarFilmografia (drop 1 filmografia)
+
+
+oscarPeli :: Actuacion->Bool    
+oscarPeli (UnaActuacion peli _) = peliculasPremiadas peli
+
+
+
 
 elenco :: [Persona]->Elenco
-elenco personas  = UnElenco  (cond2 personas) (cond3 personas) 
+elenco personas  = UnElenco (cond1 personas)  (cond2 personas) (cond3 personas) 
+
+cond1 :: [Persona]->Bool
+cond1 personas = cantHeroes personas >3
+
+cantHeroes :: [Persona]->Int
+cantHeroes personas = length (filter esHeroe personas)
 
 cond2 :: [Persona]->Bool
-cond2 personas = length personas - cantVillanos personas 0 >5
+cond2 personas = length personas - cantVillanos personas >5
 
 
-cantVillanos :: [Persona]->Int->Int
-cantVillanos personas cantVil
-    |null personas = cantVil
-    |esVillano (head personas) = cantVillanos (drop 1 personas) (cantVil+1)
-    |not (esVillano (head personas)) = cantVillanos (drop 1 personas) cantVil
+cantVillanos :: [Persona]->Int
+cantVillanos personas = length (filter esVillano personas)
 
 
 cond3 :: [Persona]->Bool
-cond3 personas = cantExperiencia personas 0 >2
+cond3 personas = cantExperiencia personas >2
 
-cantExperiencia :: [Persona]->Int->Int
-cantExperiencia personas cantExp
-    |null personas = cantExp
-    |tieneExperiencia (head personas) = cantExperiencia (drop 1 personas) (cantExp+1)
-    |not (tieneExperiencia (head personas)) = cantExperiencia (drop 1 personas) cantExp
+cantExperiencia :: [Persona]->Int
+cantExperiencia personas = length (filter tieneExperiencia personas)
 
 tieneExperiencia :: Persona->Bool
 tieneExperiencia (UnaPersona _ _ actuaciones) = experiencia actuaciones 4
+
+cond4 :: [Persona]->Bool
+cond4 personas = (cantHeroes personas + cantVillanos personas) >=5

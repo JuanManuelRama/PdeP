@@ -5,7 +5,7 @@ type Actor = String
 data Genero = UnGenero{
     genero :: String,
     participantes :: [Actor]
-}
+}deriving Show
 
 data Pelicula = UnaPelicula{
     titulo :: String,
@@ -30,7 +30,7 @@ generoPeli pelicula (x:xs)
     |otherwise = generoPeli pelicula xs
 
 compGenero :: Pelicula->Genero->Genero->Bool
-compGenero peli gen1 gen2 = actGenero peli gen1 > actGenero peli gen2
+compGenero peli gen1 gen2 = actGenero peli gen1 >= actGenero peli gen2
 
 actGenero :: Pelicula->Genero->Int
 actGenero peli genero = length (participantes genero `intersect` elenco peli)

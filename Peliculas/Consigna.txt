@@ -31,7 +31,7 @@ Ojo! puede haber actores de más de un género.
 a) Definir lo que sea necesario para poder averiguar si una película ganó un determinado premio.
 c) Mostrar ejemplos de invocación y respuesta
 d) Inventar un nuevo premio, consistente con los anteriores.
- 
+
 
 
 4. En el mundo hay festivales de cine que otorgan ciertos premios a las películas. Por ejemplo, Cannes otorga los premios 3 son multitud y Clásico setentista. mientras que el festival de Berlín entrega los premios 4 son multitud, plomo y Clasico setentista.

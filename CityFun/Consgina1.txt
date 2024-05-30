@@ -1,0 +1,159 @@
+﻿TP Funcional - Paradigmas de Programación
+CityFun - Entrega 1
+
+
+  
+
+
+
+Índice general
+Dominio
+Punto 1: Valor de una ciudad
+Valor de una ciudad
+Ejemplos
+Punto 2: Características de las ciudades
+Alguna atracción copada
+Ejemplo
+Ciudad sobria
+Ejemplo:
+Ciudad con nombre raro
+Ejemplo
+Punto 3: Eventos
+Sumar una nueva atracción
+Ejemplos:
+Crisis
+Ejemplos:
+Remodelación
+Ejemplos:
+Reevaluación
+Ejemplos
+Punto 4: La transformación no para
+Dominio
+
+
+“Yo extraño mi ciudad, las luces de mi ciudad...” decía la canción. Es el momento de modelar las ciudades del pintoresco país de Haskellandia, de las que nos interesa conocer su nombre, el año de fundación, las atracciones principales (como “Obelisco”, “Pan de Azúcar”, “El Gorosito”, etc.) y su costo de vida.
+
+
+Punto 1: Valor de una ciudad
+Valor de una ciudad 
+Definir el valor de una ciudad, un número que se obtiene de la siguiente manera:
+* si fue fundada antes de 1800, su valor es 5 veces la diferencia entre 1800 y el año de fundación
+* si no tiene atracciones, su valor es el doble del costo de vida
+* de lo contrario, será 3 veces el costo de vida de la ciudad
+
+
+Ejemplos
+Condición
+	Qué se espera
+	Valor de la ciudad “Baradero”, fundada en 1615, cuyas atracciones son “Parque del Este” y “Museo Alejandro Barbich”, con un costo de vida de 150
+	185 * 5 = 925
+	Valor de la ciudad “Nullish”, fundada en 1800, sin atracciones y un costo de vida de 140
+	140 * 2 = 280
+	Valor de la ciudad “Caleta Olivia”, fundada en 1901, cuyas atracciones son “El Gorosito” y “Faro Costanera”, y un costo de vida de 120
+	120 * 3 = 360
+	
+
+Punto 2: Características de las ciudades
+
+
+Alguna atracción copada
+Queremos saber si una ciudad tiene alguna atracción copada, esto es que la atracción comience con una vocal. Por ejemplo: "Acrópolis" es una atracción copada y "Golden Gate" no es copada.
+
+
+Ejemplos
+Condición
+	Qué se espera
+	Saber si la ciudad “Baradero”, fundada en 1615, cuyas atracciones son “Parque del Este” y “Museo Alejandro Barbich”, con un costo de vida de 150 tiene alguna atracción copada
+	Falso
+	Saber si la ciudad “Nullish”, fundada en 1800, sin atracciones y un costo de vida de 140 tiene alguna atracción copada
+	Falso
+	Saber si la ciudad “Caleta Olivia”, fundada en 1901, cuyas atracciones son “El Gorosito” y “Faro Costanera”, y un costo de vida de 120 tiene alguna atracción copada
+	Verdadero
+	
+
+
+
+Ciudad sobria
+Queremos saber si una ciudad es sobria, esto se da si todas las atracciones tienen más de x letras. El valor x tiene que poder configurarse.[1]
+
+
+Ejemplos
+Condición
+	Qué se espera
+	Saber si la ciudad “Baradero”, fundada en 1615, cuyas atracciones son “Parque del Este” y “Museo Alejandro Barbich”, con un costo de vida de 150 es sobria con atracciones de más de 14 letras
+	Verdadero (“Parque del Este” tiene 15 letras y el “Museo Alejandro Barbich” 24)
+	Saber si la ciudad “Baradero”, fundada en 1615, cuyas atracciones son “Parque del Este” y “Museo Alejandro Barbich”, con un costo de vida de 150 es sobria con atracciones de más de 15 letras
+	Falso, porque “Parque del Este” tiene exactamente 15 letras y no más de 15.
+	Saber si la ciudad “Nullish”, fundada en 1800, sin atracciones y un costo de vida de 140 es sobria con 5 letras
+	Falso
+	
+
+Ciudad con nombre raro
+Queremos saber si una ciudad tiene un nombre raro, esto implica que tiene menos de 5 letras en su nombre.
+
+
+Ejemplos
+Condición
+	Qué se espera
+	Saber si la ciudad “Maipú”, fundada en 1878, cuya atracción es el “Fortín Kakel” con un costo de vida de 115 tiene un nombre raro
+	Falso, “Maipú” tiene exactamente 5 letras, no menos
+	Saber si la ciudad “Azul”, fundada en 1832, cuyas atracciones son “Teatro Español”, “Parque Municipal Sarmiento” y “Costanera Cacique Catriel”, con un costo de vida de 190 tiene un nombre raro
+	Verdadero, “Azul” tiene 4 letras < 5
+	
+
+
+
+Punto 3: Eventos
+
+
+Queremos poder registrar eventos que ocurren sobre una ciudad y que la afectan en mayor o menor medida. Dichos eventos son:
+
+
+Sumar una nueva atracción
+Queremos poder agregar una nueva atracción a la ciudad. Esto implica un esfuerzo de toda la comunidad en tiempo y dinero, lo que se traduce en un incremento del costo de vida de un 20%.
+
+
+Ejemplos
+Condición
+	Qué se espera
+	Agregar a la ciudad “Azul”, fundada en 1832, cuyas atracciones son “Teatro Español”, “Parque Municipal Sarmiento” y “Costanera Cacique Catriel”, con un costo de vida de 190, una nueva atracción: “Balneario Municipal Alte. Guillermo Brown”.
+	La ciudad debe tener 4 atracciones y su costo de vida debe quedar en 228 (190 + 20%)
+	
+
+Crisis 
+Al atravesar una crisis, la ciudad baja un 10% su costo de vida y se debe cerrar la última atracción de la lista.
+
+
+Ejemplos
+Condición
+	Qué se espera
+	Que haya una crisis sobre la ciudad “Azul”, fundada en 1832, cuyas atracciones son “Teatro Español”, “Parque Municipal Sarmiento” y “Costanera Cacique Catriel”, con un costo de vida de 190.
+	La ciudad debe tener 2 atracciones: “Teatro Español” y “Parque Municipal Sarmiento” y un costo de vida de 171 (10% menos de 190)
+	Que haya una crisis sobre ciudad “Nullish”, fundada en 1800, sin atracciones y un costo de vida de 140
+	La ciudad debe tener un costo de vida de 126 (10% menos de 140) y no tener atracciones.
+	
+
+Remodelación 
+Al remodelar una ciudad, incrementa su costo de vida un porcentaje que se indica al hacer la remodelación y le agrega el prefijo "New " al nombre.
+Ejemplos
+Condición
+	Qué se espera
+	Que haya una remodelación al 50% sobre la ciudad “Azul”, fundada en 1832, cuyas atracciones son “Teatro Español”, “Parque Municipal Sarmiento” y “Costanera Cacique Catriel”, con un costo de vida de 190.
+	La ciudad debe tener un nombre de “New Azul” y su costo de vida debe aumentar a 285.
+	Reevaluación 
+Si la ciudad es sobria con atracciones de más de n letras (valor que se quiere configurar), aumenta el costo de vida un 10%, si no baja 3 puntos.
+Ejemplos
+Condición
+	Qué se espera
+	Que haya una reevaluación de atracciones de 14 letras sobre la ciudad “Azul”, fundada en 1832, cuyas atracciones son “Teatro Español”, “Parque Municipal Sarmiento” y “Costanera Cacique Catriel”, con un costo de vida de 190.
+	Dado que el “Teatro Español” tiene 14 letras (no más), la ciudad no es sobria entonces baja a un costo de vida de 187 puntos
+	Que haya una reevaluación de atracciones de 13 letras sobre la ciudad “Azul”, fundada en 1832, cuyas atracciones son “Teatro Español”, “Parque Municipal Sarmiento” y “Costanera Cacique Catriel”, con un costo de vida de 190.
+	En este caso la ciudad es sobria, por lo que aumenta su costo de vida a 209 (190 + 10% = 19)
+	Punto 4: La transformación no para 
+Reflejar de qué manera podemos hacer que una ciudad tenga sucesivamente
+* una remodelación
+* una crisis
+* y una reevaluación
+ de 
+________________
+[1] Si no se puede lograr que sea configurable, por ahora que dicho valor sea fijo y queda pendiente para la siguiente entrega.

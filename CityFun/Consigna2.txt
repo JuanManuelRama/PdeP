@@ -1,0 +1,147 @@
+﻿TP Funcional - Paradigmas de Programación
+CityFun - Entrega 2
+  
+
+Índice general
+Punto 4 - Un año para recordar
+4.1 Los años pasan...
+Ejemplos
+4.2  Algo mejor
+Ejemplos
+4.3 Costo de vida que suba
+Ejemplos
+4.4 Costo de vida que baje
+Ejemplos
+4.5 Valor que suba
+Ejemplos
+Punto 5: Funciones a la orden
+5.1 Eventos ordenados
+Ejemplos
+5.2 Ciudades ordenadas
+Ejemplos
+5.3 Años ordenados
+Ejemplos
+Punto 6: Al infinito, y más allá...
+Una serie de eventos interminables
+Eventos ordenados
+Ciudades ordenadas
+Años ordenados
+________________
+
+
+Continuamos desarrollando nuestra aplicación para modelar ciudades. Ahora vamos a agregar una nueva serie de reglas de negocio.
+
+
+Punto 4 - Un año para recordar
+4.1 Los años pasan... 
+Queremos modelar un año, donde definamos
+* el número que le corresponde
+* una serie de eventos que se produjeron
+
+
+También queremos reflejar el paso de un año para una ciudad, es decir, que los eventos afecten el estado final en el que queda una ciudad.
+
+
+Ejemplos
+Condición
+	Qué se espera
+	Reflejar para Azul el paso del año 2022 que tiene como eventos: una crisis, una remodelación de 5% y una reevaluación de 7 letras para las atracciones.
+	Debe quedar con el nombre “New Azul”,el costo de vida de 197.505 y las atracciones “Teatro Español” y “Parque Municipal Sarmiento”
+	Reflejar para Azul el paso del año 2015 que no tiene eventos.
+	Debe quedar con el mismo costo de vida.
+	4.2  Algo mejor 
+Implementar una función que reciba una ciudad, un criterio de comparación y un evento, de manera que nos diga si la ciudad tras el evento subió respecto a ese criterio. 
+
+
+Ejemplos
+Condición
+	Qué se espera
+	Para la ciudad Azul, el evento crisis y el criterio para comparar el costoDeVida.
+	Falso (ya que al aplicar el evento crisis sobre Azul, el costo de vida bajó).
+	Para la ciudad Azul, el evento Agregar atracción “Monasterio Trapense” y el criterio para comparar el costo de vida.
+	Verdadero (el costo de vida subió un 20%)
+	Para la ciudad Azul, el evento Agregar atracción “Monasterio Trapense” y el criterio para comparar la cantidad de atracciones.
+	Verdadero (pasó de 2 a 3 atracciones)
+	
+
+4.3 Costo de vida que suba 
+Para un año, queremos aplicar sobre una ciudad solo los eventos que hagan que el costo de vida suba. Debe quedar como resultado la ciudad afectada con dichos eventos.
+Ejemplos
+Condición
+	Qué se espera
+	Aplicar el año 2022 (del punto 4.1) sobre la ciudad Azul
+	Debe quedar con el nombre “New Azul”, y un costo de vida de 219.45 
+	4.4 Costo de vida que baje  
+Para un año, queremos aplicar solo los eventos que hagan que el costo de vida baje. Debe quedar como resultado la ciudad afectada con dichos eventos.
+Ejemplos
+Condición
+	Qué se espera
+	Aplicar el año 2022 (del punto 4.1) sobre la ciudad Azul
+	Debe quedar con el mismo nombre (“Azul”), y un costo de 171
+	4.5 Valor que suba  
+Para un año, queremos aplicar solo los eventos que hagan que el valor suba. Debe quedar como resultado la ciudad afectada con dichos eventos.
+Ejemplos
+Condición
+	Qué se espera
+	Aplicar el año 2022 (del punto 4.1) sobre la ciudad Nullish (de la entrega 1)
+	Debe quedar con el nombre “New Nullish” y el costo de vida 147
+	
+
+Punto 5: Funciones a la orden
+5.1 Eventos ordenados 
+Dado un año y una ciudad, queremos saber si los eventos están ordenados en forma correcta, esto implica que el costo de vida al aplicar cada evento se va incrementando respecto al anterior evento. Debe haber al menos un evento para dicho año.
+
+
+Ejemplos
+Condición
+	Qué se espera
+	Saber si el año 2022 (4.1) sobre Azul tiene los eventos ordenados
+	Verdadero
+	Saber si el año 2023 que tiene los siguientes eventos: crisis, agregar como atracción "parque", hacer una remodelación al 10%, y hacer una remodelación al 20%, sobre Azul tiene los eventos ordenados
+	Falso, al agregar la atracción le sube un 20% el costo de vida y la remodelación un 10%, por lo tanto no está ordenado.
+	
+
+5.2 Ciudades ordenadas
+Dado un evento y una lista de ciudades, queremos saber si esa lista está ordenada. Esto implica que el costo de vida al aplicar el evento sobre cada una de las ciudades queda en orden creciente. Debe haber al menos una ciudad en la lista.
+
+
+Ejemplos
+Condición
+	Debe ser
+	Saber si para el evento remodelación al 10% de las ciudades Caleta Olivia, Nullish, Baradero y Azul está ordenada
+	Verdadero
+	Saber si para el evento remodelación al 10% de las ciudades Caleta Olivia, Azul y Baradero está ordenada
+	Falso
+	
+
+5.3 Años ordenados
+Dada una lista de años y una ciudad, queremos saber si el costo de vida al aplicar todos los eventos de cada año sobre esa ciudad termina generando una serie de costos de vida ascendente (de menor a mayor). Debe haber al menos un año en la lista.
+
+
+Tenemos los años
+* 2021 que tiene los siguientes eventos: crisis y agregar como atracción “playa”
+* 2022 que está definido en el punto 4.1
+* 2023 que tiene los siguientes eventos: crisis, agregar como atracción "parque", hacer una remodelación al 10%, y hacer una remodelación al 20%
+Ejemplos
+Condición
+	Qué se espera
+	Que los años 2021, 2022 y 2023 estén ordenados para Baradero
+	Falso
+	Que los años 2022, 2021 y 2023 estén ordenados para Baradero
+	Verdadero, al aplicar los años en ese orden va subiendo el costo de vida.
+	
+
+Punto 6: Al infinito, y más allá...
+Una serie de eventos interminables 
+Definir el año 2024 con una lista infinita de eventos.
+Eventos ordenados
+Puede haber un resultado posible para la función del punto 5.1 (eventos ordenados) para el año 2024? Justificarlo relacionándolo con conceptos vistos en la materia.
+Ciudades ordenadas
+Puede haber un resultado posible para la función del punto 5.2 (ciudades ordenadas) para el año 2024? Justificarlo relacionándolo con conceptos vistos en la materia.
+Años ordenados 
+Puede haber un resultado posible para la función del punto 5.3 (años ordenados) para el año 2024? Justificarlo relacionándolo con conceptos vistos en la materia.
+
+
+
+
+ de

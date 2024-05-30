@@ -1,31 +1,71 @@
-import Data.List
-data Material = UnMaterial{
-    mat :: String,
-    cantidad :: Int,
-    demora :: Int,
-    requisitos :: [Material]
-} deriving (Show, Eq)
+type Cambio = Personaje->Personaje
+type Material = String
+
 data Personaje = UnPersonaje {
    nombre :: String,
     puntaje:: Int,
     inventario:: [Material]
 } deriving (Show)
 
-craftear :: Personaje->Material->Personaje
-craftear personaje objeto
-    |tieneMateriales personaje objeto = cambiarPuntos.sumarMaterial.quitarMaterial
+data Receta = UnaReceta{
+    nombreO :: Material,
+    tiempo :: Int,
+    requisitos :: [Material]
+}
+
+rFogata :: Receta
+rFogata = UnaReceta "Fogata" 10 ["Madera", "Fosforo"]
+rPolloAsado :: Receta
+rPolloAsado = UnaReceta "Pollo Asado"  300 ["Fogata", "Pollo"]
 
 
-tieneMateriales :: Personaje->Material->Bool
-tieneMateriales personaje material = not (null (inventario personaje `intersect` requisitos material))
-
-sumarMaterial :: Personaje->Material->Personaje
-sumarMaterial personaje material = personaje {inventario = material:inventario personaje}
-
-cambiarPuntos :: Personaje->Int->Personaje
-cambiarPuntos personaje incremento = personaje {puntaje = puntaje personaje + incremento}
+craftear :: Receta->Cambio
+craftear receta personaje
+    |puedeCrafter personaje receta  = (quitarMateriales receta.crafteroExito receta.aniadirObjeto receta) personaje
+    |otherwise = crafteoFracaso personaje
 
 
-quitarMaterial :: Personaje->[Material]->Personaje
-quitarMaterial personaje [] = personaje
-quitarMaterial personaje (x:xs) = quitarMaterial
+
+
+aniadirObjeto:: Receta->Cambio
+aniadirObjeto receta personaje = personaje{inventario = nombreO receta : inventario personaje}
+
+quitarMateriales::Receta->Cambio
+quitarMateriales receta personaje = personaje{inventario = craftear1 (inventario personaje) (requisitos receta)}
+
+
+craftear1 :: Ord a => [a] -> [a] -> [a]
+craftear1 [] _ = []
+craftear1 lista [] = lista
+craftear1 x  (y:ys)
+    |x==y = craftear1 xs ys
+    |otherwise = craftear1 (xs++[x]) [y]++ys
+
+
+
+
+{-quitarMateriales::[Materiales]->[Materiales]->[Materiales]
+quitarMateriales [] [_] = []
+quitarMateriales x [] = x
+quitarMateriales (x:xs) (y:ys)
+    |x==y = quitarMateriales xs ys
+    |otherwise quitarMateriales-}
+
+cambiarPuntos :: Int->Cambio
+cambiarPuntos aumento personaje = personaje{puntaje = puntaje personaje + aumento}
+
+crafteroExito :: Receta->Cambio
+crafteroExito receta = cambiarPuntos (10*tiempo receta)
+
+crafteoFracaso :: Cambio
+crafteoFracaso = cambiarPuntos (-100)
+
+
+
+puedeCrafter::Personaje->Receta->Bool
+puedeCrafter personaje receta = all (tieneMaterial (inventario personaje)) (requisitos receta)
+
+tieneMaterial :: [Material]->Material->Bool
+tieneMaterial materiales material = material `elem` materiales
+
+

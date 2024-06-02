@@ -94,3 +94,10 @@ minar herramienta bioma personaje
 
 puedeMinar :: Personaje -> Bioma -> Bool
 puedeMinar personaje = (tieneMaterial.inventario) personaje.requisito
+
+{-
+Si nuestra herramienta busca un elemento fijo de la lista infinita, ya sea head, o el n-ésimo, lo encontrará sin problemas,
+pero otras, que busquen el último, u otro que dependa el contexto como el de la mitad, no podrán seer encontrados.
+Si nuestra herramienta buscase un elemento en particular, pueden pasar 2 cosas, si el bioma lo tiene lo encontrará y lo extraerá,
+sino lo buscará hasta la eternidad (o que crashee haskell, o se corte la luz)
+-}

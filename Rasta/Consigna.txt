@@ -1,0 +1,22 @@
+﻿¿Quién ayuda al Rasta?
+[Hechos, reglas, predicados, generación, not]
+
+
+Armar un programa Prolog que resuelva el siguiente problema lógico:  
+
+
+* Quien ayuda a otra persona es porque la quiere y no tiene menos suerte que ella. Además, quien ayuda está en el aula.
+* Rasta, Polito y Santi son los únicos que están en el aula.
+* Santi quiere a todos los que están en el aula, siempre que no los quiera el Rasta.
+* Rasta quiere a todos los que están en el aula salvo a Polito.
+* Quien está en el aula y no es querido por Polito, tiene menos suerte que el Rasta.
+* Polito quiere a las mismas personas que quiere el Rasta.
+1.    1. El programa debe resolver el problema de quién ayuda al Rasta. (Pero debe poder permitir saber en general quién ayuda a quién). 
+   2. Dejar en un comentario en el código la consulta utilizada y la respuesta obtenida.
+2.    1. Agregar los mínimos hechos y reglas necesarios para poder consultar:
+- Si existe alguien que quiera a Milhouse.
+- A quién quiere Santi.
+- El nombre de quien quiera a Rasta.
+- Todas las personas que se quieren.
+- Si es cierto que Polito quiere a alguien.
+   2. Dejar en un comentario en el código las consultas utilizadas para conseguir lo anterior, junto con las respuestas obtenidas.

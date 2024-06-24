@@ -11,7 +11,7 @@ quiere(santi, Persona):- not(quiere(rasta, Persona)).
 
 quiere(rasta, Persona):-
     enAula(Persona),
-    not(Persona==santi).
+    Persona\==santi.
 
 quiere(polito, Persona) :-quiere(rasta, Persona).
 

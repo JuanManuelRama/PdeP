@@ -1,0 +1,39 @@
+Avatar, la leyenda de Prolog
+
+
+
+
+Nos vamos a adentrar en el mundo de Avatar (y no, no es el de los bichos azules). Este está dividido en cuatro naciones, nombradas por los cuatro elementos: aire, fuego, tierra y agua. Dentro de estas naciones existen personas con la capacidad de controlar dichos elementos.
+
+Cuando alguien tiene el control de uno de ellos, le llamamos "maestro". Queremos que nuestra base de conocimientos nos permita saber quién es maestro de qué. Tenemos algunos ejemplos:
+Toph es una maestra de tierra
+Katara es una maestra de agua
+Zuko es un maestro de fuego
+Aang es maestro tanto de agua, como de fuego y tierra
+Sokka no puede controlar ningún elemento
+        Agregar 5 maestros más.
+
+¿Y los maestros de aire? Desafortunadamente, saber controlar el elemento nos nos alcanza para ser un maestro de aire, debemos tener en cuenta algunas cositas antes. Los maestros de aire pueden aprender diferentes técnicas a las que llamaremos movimientos, y algunos de ellos incluso llegan a crearlos. Al día de hoy sabemos que:
+Zaheer creó un movimiento llamado volar
+Aang creó un movimiento llamado patineta de aire
+Tenzin creó un movimiento llamado torbellino de aire
+Algunos maestros de aire, a diferencia de los otros elementos, no obtienen su poder de haber nacido con él, si no que lo obtienen gracias a su gran conexión con el mundo espiritual y su capacidad de fluir con la energía. Tenemos en nuestra base de conocimientos los siguientes hechos:
+tieneConexionEspiritual(zaheer).
+
+tieneConexionEspiritual(bumi).
+
+tieneConexionEspiritual(kai).
+
+tieneConexionEspiritual(marquitos).
+
+Queremos entonces poder consultar quienes son maestros aires, que serán aquellos que hayan creado un movimiento o bien tengan conexión espiritual.
+Escribir las consultas que necesitariamos hacer para saber:
+¿Existe algún maestro aire?
+¿Quiénes son los maestros fuego?
+¿Quiénes son los maestros y qué elemento controlan?
+¿Qué elementos sabe controlar Aang?
+¿Sokka sabe controlar algún elemento?
+Desarrollar los siguientes predicados:
+tieneDobleMaestria/1: aquellos maestros que saben controlar dos elementos.
+manejaNoAgua/1: aquellos maestros que controlan elementos que no son agua.
+compatriotas/2: cuando dos maestros saben controlar el mismo elemento. Por ejemplo toph y aang son compatriotas, ya que ambos saben controlar la tierra.

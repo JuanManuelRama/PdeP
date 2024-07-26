@@ -24,6 +24,7 @@ pesadillaMovimiento num1 num2 = aplicarPesadilla (movimiento num1 num2)
 
 movimiento :: Int -> Int -> [Recuerdo] -> [Recuerdo]
 movimiento num1 num2 recuerdos = take num1 recuerdos ++ [recuerdos !! num2] ++ take (num2 - num1 -1) (drop (num1 + 1) recuerdos) ++ [recuerdos !! num1] ++ take (length recuerdos - num2 -1) (reverse recuerdos)
+--movimiento num1 num2 recuerdos = (sustitucion num2 (recuerdos !! num1).sustitucion num1 (recuerdos !! num2)) recuerdos  //No se me occurrió en el parcial
 
 pesadillaSustitucion :: Int -> Recuerdo -> Pesadilla
 pesadillaSustitucion posicion = aplicarPesadilla . sustitucion posicion

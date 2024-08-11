@@ -1,0 +1,51 @@
+﻿1era entrega
+Entre los juegos de simulación de civilizaciones históricas y batallas hay uno que se destaca: El Eish. Es un juego en el que cada jugador escoge una civilización antigua y va desarrollando tecnologías y creando sus unidades. 
+Se pide la codificación en SWI-Prolog, constando de una base de conocimientos con los predicados necesarios para obtener lo que se indica a continuación. Todos los predicados principales deben ser completamente inversibles.
+Civilizaciones y tecnologías
+1. Modelar lo necesario para representar los jugadores, las civilizaciones y las tecnologías, de la forma más conveniente para resolver los siguientes puntos. Incluir los siguientes ejemplos.
+   1. Ana, que juega con los romanos y ya desarrolló las tecnologías de herrería, forja, emplumado y láminas.
+   2. Beto, que juega con los incas y ya desarrolló herrería, forja y fundición.
+   3. Carola, que juega con los romanos y sólo desarrolló la herrería.
+   4. Dimitri, que juega con los romanos y ya desarrolló herrería y fundición.
+   5. Elsa no juega esta partida.
+2. Saber si un jugador es experto en metales, que sucede cuando desarrolló las tecnologías de herrería, forja y o bien desarrolló fundición o bien juega con los romanos.
+En los ejemplos, Ana y Beto son expertos en metales, pero Carola y Dimitri no.
+3. Saber si una civilización es popular, que se cumple cuando la eligen varios jugadores (más de uno).
+En los ejemplos, los romanos son una civilización popular, pero los incas no.
+4. Saber si una tecnología tiene alcance global, que sucede cuando a nadie le falta desarrollarla.
+En los ejemplos, la herrería tiene alcance global, pues Ana, Beto, Carola y Dimitri la desarrollaron.
+5. Saber cuándo una civilización es líder. Se cumple cuando esa civilización alcanzó todas las tecnologías que alcanzaron las demás. Una civilización alcanzó una tecnología cuando algún jugador de esa civilización la desarrolló.
+En los ejemplos, los romanos son una civilización líder pues entre Ana y Dimitri, que juegan con romanos, ya tienen todas las tecnologías que se alcanzaron.
+2da Entrega
+Unidades
+No se puede ganar la guerra sin soldados. Las unidades que existen son los campeones (con vida de 1 a 100), los jinetes (que los puede haber a caballo o a camello) y los piqueros, que tienen un nivel de 1 a 3, y pueden o no tener escudo.
+   6. Modelar lo necesario para representar las distintas unidades de cada jugador de la forma más conveniente para resolver los siguientes puntos. Incluir los siguientes ejemplos:
+   * Ana tiene un jinete a caballo, un piquero con escudo de nivel 1, y un piquero sin escudo de nivel 2.
+   * Beto tiene un campeón de 100 de vida, otro de 80 de vida, un piquero con escudo nivel 1 y un jinete a camello.
+   * Carola tiene un piquero sin escudo de nivel 3 y uno con escudo de nivel 2.
+   * Dimitri no tiene unidades.
+   7. Conocer la unidad con más vida que tiene un jugador, teniendo en cuenta que:
+   * Los jinetes a camello tienen 80 de vida y los jinetes a caballo tienen 90.
+   * Cada campeón tiene una vida distinta.
+   * Los piqueros sin escudo de nivel 1 tienen vida 50, los de nivel 2 tienen vida 65 y los de nivel 3 tienen 70 de vida.
+   * Los piqueros con escudo tienen 10% más de vida que los piqueros sin escudo.
+        En los ejemplos, la unidad más “viva” de Ana es el jinete a caballo, pues tiene 90 de vida, y ninguno de sus dos piqueros tiene tanta vida.
+   8. Queremos saber si una unidad le gana a otra. Las unidades tienen una ventaja por tipo sobre otras. Cualquier jinete le gana a cualquier campeón, cualquier campeón le gana a cualquier piquero y cualquier piquero le gana a cualquier jinete, pero los jinetes a camello le ganan a los a caballo. En caso de que no exista ventaja entre las unidades, se compara la vida (el de mayor vida gana). 
+Este punto no necesita ser inversible.
+Por ejemplo, un campeón con 95 de vida le gana a otro con 50, pero un campeón con 100 de vida no le gana a un jinete a caballo.
+   9. Saber si un jugador puede sobrevivir a un asedio. Esto ocurre si tiene más piqueros con escudo que sin escudo.
+En los ejemplos, Beto es el único que puede sobrevivir a un asedio, pues tiene 1 piquero con escudo y 0 sin escudo.
+   10. Árbol de tecnologías
+      1. Se sabe que existe un árbol de tecnologías, que indica dependencias entre ellas. Hasta no desarrollar una, no se puede desarrollar la siguiente. Modelar el siguiente árbol de ejemplo:
+   
+
+      2. Saber si un jugador puede desarrollar una tecnología, que se cumple cuando ya desarrolló todas sus dependencias (las directas y las indirectas). Considerar que pueden existir árboles de cualquier tamaño.
+En el ejemplo, beto puede desarrollar el molino (pues no tiene dependencias) pero no la herrería (porque ya la tiene), y ana puede desarrollar fundición (pues tiene forja y herrería).
+Bonus (no necesario para aprobar el TP)
+         11.          1. Encontrar un orden válido en el que puedan haberse desarrollado las tecnologías para que un jugador llegue a desarrollar todo lo que tiene. Se espera una relación de jugador con lista de tecnologías.
+Ejemplo: Un orden válido para Ana es: herreria, emplumado, forja, láminas. Otro orden válido sería herreria, forja, láminas, emplumado. Pero seguro que Ana no desarrolló primero la forja, porque antes necesitaría la herrería.
+Recordar que debe funcionar para cualquier árbol y no sólo para el de el ejemplo. Y recordar que debe ser completamente inversible.
+         2. ¿Qué sucede cuando se consulta si existe un orden válido para Dimitri? ¿Por qué?
+            12. Dado un jugador defensor, encontrar el ejército que debo crear para ganarle a todo su ejército. El ejército atacante debe tener el mismo tamaño, y suponer que las batallas son uno contra uno, cada integrante atacante ataca a un integrante defensor.
+Ejemplo: Para ganarle al ejército de Carola (que es un piquero sin escudo de nivel 3 y uno con escudo de nivel 2) hacen falta dos campeones de cualquier vida, o dos piqueros con escudo nivel 3, o campeón y un piquero con escudo nivel 3, etc.
+Recordar que debe ser completamente inversible.

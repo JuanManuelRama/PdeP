@@ -17,12 +17,10 @@ object afa {
 //Jugadores
 object messi {
   method popularidad() = 98
-  method costo() = 10000
 }
 
 object ronaldo {
   method popularidad() = messi.popularidad()/2
-  method costo() = 2000000
 }
 
 object mbape {

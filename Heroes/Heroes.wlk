@@ -22,15 +22,13 @@ object uma {
     const energia = 500
     method energia() = energia
     var transporte = bondi160
-    method subirHelicoptero(){transporte=helicoptero}
-    method subirBondi(){transporte=bondi160}
+    method cambiarTransporte(transporteNuevo) {transporte = transporteNuevo}
     method volar() = transporte.despegar()
 }
 
 object bondi160{
     method despegar() = false
 }
-
 
 object helicoptero{
     var combustible = 5

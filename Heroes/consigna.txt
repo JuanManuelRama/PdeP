@@ -1,0 +1,14 @@
+﻿Héroes de Segunda Mano
+  
+
+Somos CEOs de Héroes de Segunda Mano S.A, una empresa encargada de reclutar a los mejores héroes de la Argentina para llevar a cabo complejas misiones.
+
+
+Se pide un programa en Wollok para resolver los siguientes requerimientos:|
+1. Modelar a Ernesto, el taxista, el cual posee una energía inicial de 50, que cambia durante el día. Queremos poder conocer su energía y hacer que coma un alfajor, lo que produce que esta aumente un 10%.
+2. Por otra parte, Uma es una maestra que viaja en un medio de transporte. Uma puede viajar en helicóptero o en el colectivo 160, y si su transporte puede despegar, ella puede volar. Modelar lo necesario para que Uma pueda elegir en qué transporte viajar, y para saber si ella puede o no volar. 
+El helicóptero tiene combustible medido en litros que puede variar, y solo despega cuando tiene más de 10 litros. El 160 no puede despegar. 
+3. Se desea saber si un superhéroe puede cumplir una misión. Esto depende de la naturaleza de la misma. La misión de “Salvar el avión” requiere que el héroe pueda volar, mientras que la misión “Evitar choque de tren” necesita que el superhéroe tenga más de 100 de energía. Se sabe adicionalmente que:
+   * Ernesto no puede volar.
+   * Uma no se cansa nunca, su energía siempre es 500. 
+   4. Agregar a Aurora de forma tal que todo lo anterior siga funcionando. Ella es una médica que puede volar cuando realizó más de 2 cirugías. Su energía comienza en 200 y cada cirugía realizada le resta 5 unidades. Queremos poder hacer que Aurora realice una cirugía.

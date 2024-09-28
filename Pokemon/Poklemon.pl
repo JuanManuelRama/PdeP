@@ -13,7 +13,7 @@ tiene(ash, pikachu).
 tiene(ash, charizard).
 tiene(brock, squirtle).
 
-tiposComun(Tipo):-
+tipoComun(Tipo):-
     tipo(Pokemon, Tipo),
     tipo(OtroPokemon, Tipo),
     Pokemon\=OtroPokemon.

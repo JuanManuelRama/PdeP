@@ -13,14 +13,10 @@ tiene(ash, pikachu).
 tiene(ash, charizard).
 tiene(brock, squirtle).
 
-tipoMasComun(Tipo):-
-    cantTipo(Tipo, Cant),
-    forall(cantTipo(_, OtraCant), Cant>=OtraCant).
-
-cantTipo(Tipo, Cant):-
-    esTipo(Tipo),
-    findall(_, tipo(_, Tipo), Lista),
-    length(Lista, Cant).
+tiposComun(Tipo):-
+    tipo(Pokemon, Tipo),
+    tipo(OtroPokemon, Tipo),
+    Pokemon\=OtroPokemon.
 
 pokemonLibre(Pokemon):-
     pokemon(Pokemon),

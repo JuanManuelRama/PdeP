@@ -1,0 +1,69 @@
+import Planetas.*
+describe "Test Básico"{
+    method planeta() {        
+        const persona1 = new Persona(anios = 19, monedas = 50)
+        const persona2 = new Persona(anios = 20, monedas = 100)
+        const persona3 = new Persona(anios = 10, monedas = 140)
+        const persona4 = new Persona(anios = 10, monedas = 150)
+        const muralla = new Muralla(longitud = 10)
+        const muralla2 = new Muralla(longitud = 20)
+        const museo = new Museo(superficie = 50, factorPropio = 3)
+        return new Planeta(habitantes = [persona1, persona2, persona3, persona4], construcciones = [muralla, muralla2, museo])}
+    test"Planeta valioso"{
+        assert.that(self.planeta().valioso())
+    }
+    test"Delegacion del Planeta"{
+        assert.equals(self.planeta().delegacion().size(), 3)
+    }
+    test "Planeta no Valioso"{
+        const persona = new Persona(anios = 10, monedas = 10)
+        const muralla = new Muralla(longitud = 1)
+        const museo = new Museo(superficie = 1, factorPropio = 1)
+        const planeta = new Planeta(habitantes = [persona], construcciones = [muralla, museo])
+        assert.notThat(planeta.valioso())
+    }
+}
+
+describe "Test Trabajadores"{
+    test "Trabajador Constructor"{
+        const trabajador = new Constructor(anios = 20, monedas = 100, region = montania)
+        const planeta = new Planeta(habitantes = [trabajador], construcciones = [])
+        trabajador.trabajar(10, planeta)
+        assert.equals(trabajador.construcciones().size(), 1)
+        assert.equals(planeta.construcciones().size(), 1 )
+    }
+    test "Trabajador Productor"{
+        const trabajador = new Productor(anios = 20, monedas = 100)
+        const planeta = new Planeta(habitantes = [trabajador], construcciones = [])
+        trabajador.trabajar(planeta, 10)
+        assert.equals(trabajador.recuros(), 130)
+    }
+    test "Productor aprende técnica"{
+        const trabajador = new Productor(anios = 20, monedas = 100)
+        trabajador.aprenderTecnica("cocinar")
+        assert.that(trabajador.tecnicas().contains("cocinar"))
+    }
+    test "Productor realiza técnica"{
+        const trabajador = new Productor(anios = 20, monedas = 100)
+        trabajador.aprenderTecnica("cocinar")
+        trabajador.realizarTecnica("cocinar", 10)
+        assert.equals(trabajador.recursos(), 260)
+    }
+}
+
+describe "Historia planetaria"{
+    test"Delegación Trabajadora"{
+        const trabajador = new Constructor(anios = 20, monedas = 100, region = montania)
+        const trabajador2 = new Productor(anios = 20, monedas = 100)
+        const persona
+        const planeta = new Planeta(habitantes = [trabajador, trabajador2], construcciones = [])
+        planeta.delegacion().forEach{x=>x.trabajar(10, planeta)}
+        assert.equals(trabajador.construcciones().size(), 1)
+    }
+    test "Planeta Invasor"{
+        const imperial = new Planeta()
+        const conquistado = new Planeta(habitantes = [new Constructor(anios = 20, region = montania)])
+        conquistado.delegacion().forEach{x=>x.trabajar(10, imperial)}
+        assert.equals(imperial.construcciones().size(), 1)
+    }
+}
